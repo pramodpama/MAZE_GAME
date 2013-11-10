@@ -6,6 +6,7 @@
  */
 #include<malloc.h>
 #include "MazeSolver.h"
+#include<stdio.h>
 
 // function to find the shortest between U and R or E and R
 int shortestDistance( char* maze,int* visit,Queue* X, int dis,int N)
@@ -131,7 +132,44 @@ int queue_size( Queue* st )
 	return count;
 }	
 
+void mazeprint(char* Maze)
+{
+                                                                                    
+                                                                                      
+printf("MMMMMMMM               MMMMMMMM  \n");                                                     
+printf("M:::::::M             M:::::::M       \n");                                                
+printf("M::::::::M           M::::::::M       \n");                                                
+printf("M:::::::::M         M:::::::::M       \n");                                                
+printf("M::::::::::M       M::::::::::M  aaaaaaaaaaaaa   zzzzzzzzzzzzzzzzz    eeeeeeeeeeee    \n");
+printf("M:::::::::::M     M:::::::::::M  a::::::::::::a  z:::::::::::::::z  ee::::::::::::ee  \n");
+printf("M:::::::M::::M   M::::M:::::::M  aaaaaaaaa:::::a z::::::::::::::z  e::::::eeeee:::::ee\n");
+printf("M::::::M M::::M M::::M M::::::M           a::::a zzzzzzzz::::::z  e::::::e     e:::::e\n");
+printf("M::::::M  M::::M::::M  M::::::M    aaaaaaa:::::a       z::::::z   e:::::::eeeee::::::e\n");
+printf("M::::::M   M:::::::M   M::::::M  aa::::::::::::a      z::::::z    e:::::::::::::::::e \n");
+printf("M::::::M    M:::::M    M::::::M a::::aaaa::::::a     z::::::z     e::::::eeeeeeeeeee  \n");
+printf("M::::::M     MMMMM     M::::::Ma::::a    a:::::a    z::::::z      e:::::::e           \n");
+printf("M::::::M               M::::::Ma::::a    a:::::a   z::::::zzzzzzzze::::::::e          \n");
+printf("M::::::M               M::::::Ma:::::aaaa::::::a  z::::::::::::::z e::::::::eeeeeeee  \n");
+printf("M::::::M               M::::::M a::::::::::aa:::az:::::::::::::::z  ee:::::::::::::e \n");
+printf("MMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaazzzzzzzzzzzzzzzzz    eeeeeeeeeeeeee  \n");
 
+printf("\n\n");                                                                                      
+                                                                                      
+                                                                                      
+                                                                                      
+                           
+	int i,j;
+	for(i=0;i<17;i++)
+	{
+		for(j=0;j<17;j++)
+		{	
+		printf("%c   ",Maze[i*17+j]);
+		}
+	printf("\n");
+	}
+	
+	return ;
+}
 
 
 

@@ -36,4 +36,16 @@ int queue_size( Queue* st );
 // a direction.
 int shortestDistance( char* maze,int* visit,Queue* X, int dis,int N);
 
+int botstart(char* Maze );
+
+int wheremove(char* Maze,int start );
+
+int posn(char* Maze,char y);
+
+int sdistance(char* Maze, int lrud);
+
+char* move(char* Maze,int x);
+
+void mazeprint(char* Maze);
+
 #endif // TOKENISER_H

@@ -8,6 +8,7 @@
 #include<unistd.h>
 #include "MazeSolver.h"
 
+
 int main()
 {
 	char Maze[289];
@@ -73,34 +74,43 @@ int main()
 			}
 		}
 	}
+	printf("MMMMMMMM               MMMMMMMM  \n");                                                     
+printf("M:::::::M             M:::::::M       \n");                                                
+printf("M::::::::M           M::::::::M       \n");                                                
+printf("M:::::::::M         M:::::::::M       \n");                                                
+printf("M::::::::::M       M::::::::::M  aaaaaaaaaaaaa   zzzzzzzzzzzzzzzzz    eeeeeeeeeeee    \n");
+printf("M:::::::::::M     M:::::::::::M  a::::::::::::a  z:::::::::::::::z  ee::::::::::::ee  \n");
+printf("M:::::::M::::M   M::::M:::::::M  aaaaaaaaa:::::a z::::::::::::::z  e::::::eeeee:::::ee\n");
+printf("M::::::M M::::M M::::M M::::::M           a::::a zzzzzzzz::::::z  e::::::e     e:::::e\n");
+printf("M::::::M  M::::M::::M  M::::::M    aaaaaaa:::::a       z::::::z   e:::::::eeeee::::::e\n");
+printf("M::::::M   M:::::::M   M::::::M  aa::::::::::::a      z::::::z    e:::::::::::::::::e \n");
+printf("M::::::M    M:::::M    M::::::M a::::aaaa::::::a     z::::::z     e::::::eeeeeeeeeee  \n");
+printf("M::::::M     MMMMM     M::::::Ma::::a    a:::::a    z::::::z      e:::::::e           \n");
+printf("M::::::M               M::::::Ma::::a    a:::::a   z::::::zzzzzzzze::::::::e          \n");
+printf("M::::::M               M::::::Ma:::::aaaa::::::a  z::::::::::::::z e::::::::eeeeeeee  \n");
+printf("M::::::M               M::::::M a::::::::::aa:::az:::::::::::::::z  ee:::::::::::::e \n");
+printf("MMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaazzzzzzzzzzzzzzzzz    eeeeeeeeeeeeee  \n");
 
-
-	for(i=0;i<17;i++)
-	{
-		for(j=0;j<17;j++)
-		{	
-		printf("%c   ",Maze[i*17+j]);
-		}
-	printf("\n\n");
-	}
-
-	return 0;
-}
-/*
-
-int shortest_dis(int x, char* Maze,int c)
-{
-	int visit[288];	
-	int i;	
-	Queue* q;
-	q=queue_new();
-	q=queue_push(q,x);
-	q=queue_push(q,-1);	
-
-	for(i=0;i<289;i++)
-	visit[i]=0;
+printf("\n\n");                                                                                      
+                             
+	mazeprint(Maze);
+	system("clear");
+	printf("\n");
+	int end=0;
+	while(end!=1){
+		
+		end=botstart((Maze+0));              //put comment
+		mazeprint(Maze);
+		
+		sleep(1);
+		system("clear");
+		
+		
+	}	
 	
-	int dis=shortestDistance(Maze,visit,q,0,c);
+		//mazeprint(Maze); 
+	return 0;
+	
+}
 
-	return dis;
-}*/
+
