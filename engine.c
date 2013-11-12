@@ -11,69 +11,15 @@
 
 int main()
 {
-	char Maze[289];
+	char* Maze;
+//	Maze = (char *)malloc(sizeof(char)*10000);
 	int i,n,j,c=0,k=0,t=0,p=0	;
 	int x,y;
-	int ER,UR;	
+	int S_U=0,S_E=0;	
 	
 	srand(time(NULL));
+	Maze = maze_former();
 	
-	for(i=0;i<17;i++)
-		Maze[i]='#';
-	
-	for(i=0;i<17;i++)
-		Maze[i*17]='#';
-	
-	for(i=0;i<17;i++)
-		Maze[16*17+i]='#';
-	
-	for(i=0;i<17;i++)
-		Maze[i*17+16]='#';
-	
-	for(i=1;i<16;i++){
-		for(j=1;j<16;j++)
-		{
-			n = rand()%288;
-			if(n%4==0)
-			Maze[i*17+j]='#';
-			else 
-			Maze[i*17+j]='.';
-		}			
-	}
-	
-	
-	for(i=1;i<16;i++){
-		for(j=1;j<16;j++)
-		{
-			n = rand()%288;
-			if(n%10==0 && Maze[i*17+j]=='.' && c<15){
-				Maze[i*17+j]='2';
-				c++;	
-			}
-			if(Maze[i*17+j]=='#' && k==0 && (n+11)%10==0){
-				Maze[i*17+j]='E';
-				k++;
-			}
-			if(Maze[i*17+j]=='#' && (n+3)%10==0 && t==0){
-				Maze[i*17+j]='U';
-				t++;
-			}
-		}
-	}			
-	
-
-	for(i=5;i<16;i++){
-		for(j=5;j<16;j++)
-		{
-			n = rand()%288;
-			if( Maze[i*17+j]=='#' && p==0 && (n)%17==0) {
-				
-					Maze[i*17+j]='R';
-					p++;
-								
-			}
-		}
-	}
 	printf("MMMMMMMM               MMMMMMMM  \n");                                                     
 printf("M:::::::M             M:::::::M       \n");                                                
 printf("M::::::::M           M::::::::M       \n");                                                
@@ -92,25 +38,30 @@ printf("M::::::M               M::::::M a::::::::::aa:::az:::::::::::::::z  ee::
 printf("MMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaazzzzzzzzzzzzzzzzz    eeeeeeeeeeeeee  \n");
 
 printf("\n\n");                                                                                      
-                             
+    sleep(5);
 	mazeprint(Maze);
 	system("clear");
 	printf("\n");
-	int end=0;
-	while(end!=1){
-		
-		end=botstart((Maze+0));              //put comment
+	int m=0;
+	int *end;
+	int dir,score=0;
+	end = (int*)malloc(sizeof(int));
+	*end = 0;
+	while(*end!=1){
+		dir=botstart(Maze,end);
+		score = Maze_alter(Maze , dir, 1, end);
+		S_U = S_U + score;              //put comment
 		mazeprint(Maze);
-		
+		printf("%d\n\n" ,S_U);
+		if(*end == 1){ printf("The winner is User bot with a score : %d\n" ,S_U); sleep(10);}
 		sleep(1);
 		system("clear");
-		
-		
 	}	
 	
 		//mazeprint(Maze); 
 	return 0;
 	
 }
+
 
 

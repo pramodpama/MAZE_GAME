@@ -34,9 +34,13 @@ int queue_size( Queue* st );
 // search symbol in the maze of size NxN
 // from start position (x,y) and return
 // a direction.
+char* maze_former();
+
 int shortestDistance( char* maze,int* visit,Queue* X, int dis,int N);
 
-int botstart(char* Maze );
+int Maze_alter(char* maze, int direction, int person, int* flag);
+
+int* botstart(char* Maze,int* end );
 
 int wheremove(char* Maze,int start );
 
@@ -49,3 +53,4 @@ char* move(char* Maze,int x);
 void mazeprint(char* Maze);
 
 #endif // TOKENISER_H
+
