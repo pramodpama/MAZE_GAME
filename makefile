@@ -14,7 +14,7 @@ $(PROG): $(PROG).o MazeSolver.o bot.o
 
 $(PROG).o: $(PROG).c MazeSolver.h
 
-qsort.o: MazeSolver.c MazeSolver.h
+MazeSolver.o: MazeSolver.c MazeSolver.h
 
 bot.o: bot.c
 
@@ -28,6 +28,5 @@ clean:
 
 lint:
 
-test: all
-	$(SH) tests/run_tests.sh
+
 
