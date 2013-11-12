@@ -40,7 +40,7 @@ int shortestDistance( char* maze,int* visit,Queue* X, int dis,int N);
 
 int Maze_alter(char* maze, int direction, int person, int* flag);
 
-int* botstart(char* Maze,int* end );
+int botstart(char* Maze,int* end );
 
 int wheremove(char* Maze,int start );
 

@@ -421,7 +421,7 @@ printf("\n\n"); */
 	{
 		for(j=0;j<52;j++)
 		{	
-		printf("%c ",Maze[i*52+j]);
+		printf("%c  ",Maze[i*52+j]);           //increased 1 space
 		}
 	printf("\n");
 	}

@@ -6,7 +6,7 @@
 #include<stdio.h>
 #include"MazeSolver.h"
 
-int* botstart(char* Maze,int* end )
+int botstart(char* Maze,int* end )
 {
 //	mazeprint(Maze);
 	int start=posn(Maze,'U');                      //position of U
