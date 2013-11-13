@@ -13,7 +13,7 @@ char* maze_former()
 {
         char *Maze;
         Maze = (char *)malloc(sizeof(char)*2704);
-        int i,n,j,c=0,k=0,t=0,p=0        ;
+        int i,n,j,c=0,k=0,t=0,p=0;
         int x,y;
         int ER,UR;        
        
@@ -46,17 +46,17 @@ char* maze_former()
                 for(j=1;j<51;j++)
                 {
                         n = rand()%2704;
-                        if(n%100==0 && Maze[i*52+j]=='.' && c<50){
-                                Maze[i*52+j]= '5';
+                        if(n%50==0 && Maze[i*52+j]=='.' && c<50){
+                                Maze[i*52+j]= '$';
                                 c++;        
                         }
                         if(Maze[i*52+j]=='#' && k==0 && (n+11)%100==0){
                                 k = i*52 + j;
-                                Maze[k]='U';
+                                Maze[k]='E';
                         }
                         if(Maze[i*52+j]=='#' && (n+3)%100==0 && t==0){
                                 t = i*52+j;
-                                Maze[t]='E';
+                                Maze[t]='U';
                         }
                 }
         }                        
@@ -79,8 +79,8 @@ char* maze_former()
         int distance2 = 0;
         for(i=0; i<2704; i++)
             visit2[i] = 0;
-        if(shortestDistance(Maze,visit,X,distance,52) != -1 &&
-                 shortestDistance(Maze,visit2,Y,distance2,52) != -1)
+        if(shortestDistance(Maze,visit,X,distance,52) != 50*50 &&                  
+                 shortestDistance(Maze,visit2,Y,distance2,52) != 50*50)         //changed
         {
             return Maze;
         } else{
@@ -106,13 +106,13 @@ int Maze_alter(char* maze, int direction, int person, int* flag)
             if(maze[add - 52] == '.')
             {
                 maze[add - 52] = 'U';
-            } else if(maze[add - 52] == '5')
+            } else if(maze[add - 52] == '$')
             {
                 maze[add - 52] = 'U';
                 score = 10;
             } else if(maze[add - 52] == 'E')
             {
-                maze[add - 52] == '8';
+                maze[add] == 'U';
             } else if(maze[add - 52] == 'R')
             {
                 *flag = 1;
@@ -126,13 +126,13 @@ int Maze_alter(char* maze, int direction, int person, int* flag)
             if(maze[add + 1] == '.')
             {
                 maze[add + 1] = 'U';
-            } else if(maze[add + 1] == '5')
+            } else if(maze[add + 1] == '$')
             {
                 maze[add + 1] = 'U';
                 score = 10;
             } else if(maze[add + 1] == 'E')
             {
-                maze[add + 1] == '8';
+                maze[add] == 'U';
             } else if(maze[add + 1] == 'R')
             {
                 *flag = 1;
@@ -146,13 +146,13 @@ int Maze_alter(char* maze, int direction, int person, int* flag)
             if(maze[add + 52] == '.')
             {
                 maze[add + 52] = 'U';
-            } else if(maze[add + 52] == '5')
+            } else if(maze[add + 52] == '$')
             {
                 maze[add + 52] = 'U';
                 score = 10;
             } else if(maze[add + 52] == 'E')
             {
-                maze[add + 52] == '8';
+                maze[add] == 'U';
             } else if(maze[add + 52] == 'R')
             {
                 *flag = 1;
@@ -166,13 +166,13 @@ int Maze_alter(char* maze, int direction, int person, int* flag)
             if(maze[add - 1] == '.')
             {
                 maze[add - 1] = 'U';
-            } else if(maze[add - 1] == '5')
+            } else if(maze[add - 1] == '$')
             {
                 maze[add - 1] = 'U';
                 score  = 10;
             } else if(maze[add - 1] == 'E')
             {
-                maze[add - 1] == '8';
+                maze[add] == 'U';
             } else if(maze[add - 1] == 'R')
             {    *flag = 1;
                 maze[add - 1] == 'U';
@@ -190,13 +190,13 @@ int Maze_alter(char* maze, int direction, int person, int* flag)
             if(maze[add - 52] == '.')
             {
                 maze[add - 52] = 'E';
-            } else if(maze[add - 52] == '5')
+            } else if(maze[add - 52] == '$')
             {
                 maze[add - 52] = 'E';
                 score  = 10;
             } else if(maze[add - 52] == 'U')
             {
-                maze[add - 52] == '8';
+                maze[add] == 'E';
             } else if(maze[add - 52] == 'R')
             {
                 *flag = 1;
@@ -210,13 +210,13 @@ int Maze_alter(char* maze, int direction, int person, int* flag)
             if(maze[add + 1] == '.')
             {
                 maze[add + 1] = 'E';
-            } else if(maze[add + 1] == '5')
+            } else if(maze[add + 1] == '$')
             {
                 maze[add + 1] = 'E';
                 score  = 10;
             } else if(maze[add + 1] == 'U')
             {
-                maze[add + 1] == '8';
+                maze[add] == 'E';
             } else if(maze[add + 1] == 'R')
             {
                 *flag = 1;
@@ -230,13 +230,13 @@ int Maze_alter(char* maze, int direction, int person, int* flag)
             if(maze[add + 52] == '.')
             {
                 maze[add + 52] = 'E';
-            } else if(maze[add + 52] == '5')
+            } else if(maze[add + 52] == '$')
             {
                 maze[add + 52] = 'E';
                 score  = 10;
             } else if(maze[add + 52] == 'U')
             {
-                maze[add + 52] == '8';
+                maze[add] == 'E';
             } else if(maze[add + 52] == 'R')
             {
                 *flag = 1;
@@ -250,13 +250,13 @@ int Maze_alter(char* maze, int direction, int person, int* flag)
             if(maze[add - 1] == '.')
             {
                 maze[add - 1] = 'E';
-            } else if(maze[add - 1] == '5')
+            } else if(maze[add - 1] == '$')
             {
                 maze[add - 1] = 'E';
                 score  = 10;
             } else if(maze[add - 1] == 'U')
             {
-                maze[add - 1] == '8';
+                maze[add] == 'E';
             } else if(maze[add - 1] == 'R')
             {
                 *flag = 1;
@@ -276,7 +276,7 @@ int shortestDistance( char* maze,int* visit,Queue* X, int dis,int N)
 				dis++;
 				X=queue_pop(X);
 				if(queue_size(X)==0)
-				return -1;
+				return 50*50;
 				X=queue_push(X,-1);
 					
 		} else {
@@ -421,7 +421,7 @@ printf("\n\n"); */
 	{
 		for(j=0;j<52;j++)
 		{	
-		printf("%c  ",Maze[i*52+j]);           //increased 1 space
+		printf("%c ",Maze[i*52+j]);
 		}
 	printf("\n");
 	}

@@ -38,15 +38,23 @@ char* maze_former();
 
 int shortestDistance( char* maze,int* visit,Queue* X, int dis,int N);
 
+int standard(char* Maze, int start);
+
 int Maze_alter(char* maze, int direction, int person, int* flag);
 
-int botstart(char* Maze,int* end );
+int bot2start(char* Maze,int* end );
 
-int wheremove(char* Maze,int start );
+int bot3start(char* Maze,int* end );
+
+int wheremove(char* Maze,int start , int end );
 
 int posn(char* Maze,char y);
 
-int sdistance(char* Maze, int lrud);
+void insertionsort( int n, int* arr );
+
+int dist_calc(int* Arr, int N);
+
+int sdistance(char* Maze, int lrud ,int end);
 
 char* move(char* Maze,int x);
 
