@@ -24,17 +24,7 @@ int bot2start(char* Maze,int* end )
 	else if(direction == 52) direction = 2;
 	else direction = 3;
 	int y=posn(Maze,'R');     // next position
-//	Maze[start]='.';
-//	Maze[next_posn]='U';
-///	mazeprint(Maze);		
-	//maze_print(Maze);
 	
-	//move(Maze,next_posn);
-//	mazeprint(Maze);
-	//maze_print(Maze);	
-	
-//	int y=posn(Maze,'R');
-//	mazeprint(Maze);	
 	if(next_posn==y)
 	*end = 1;
 	return direction;
@@ -50,17 +40,7 @@ int bot3start(char* Maze,int* end )
 	else if(direction == 52) direction = 2;
 	else direction = 3;
 	int y=posn(Maze,'R');     // next position
-//	Maze[start]='.';
-//	Maze[next_posn]='U';
-///	mazeprint(Maze);		
-	//maze_print(Maze);
 	
-	//move(Maze,next_posn);
-//	mazeprint(Maze);
-	//maze_print(Maze);	
-	
-//	int y=posn(Maze,'R');
-//	mazeprint(Maze);	
 	if(next_posn==y)
 	*end = 1;
 	return direction;

@@ -18,7 +18,17 @@ int main()
 	
 	srand(time(NULL));
 	Maze = maze_former();
-	printf("\n\n\n\n\n\n\n\n\n\n");
+	system("clear");
+printf("\n\n\n\n\n\n");
+printf("          ______   ______    _______   _______  _______  __    __  .__   __. \n ");   
+printf("         |      | |  __  |  |       | |   ____||   ____||  |  |  | |  | |  | \n  ");   
+printf("        |  ,----'|  |  |  | |  .--.  ||  |__   |  |__   |  |  |  | |   ||  | \n  ");   
+printf("        |  |     |  |  |  | |  |  |  ||   __|  |   __|  |  |  |  | |  . `  | \n ");   
+printf("        |  `----.|  `--'  | |  '--'  ||  |____ |  |     |  `--'  | |  ||   | \n ");   
+printf("         |______| |______/  |_______/ |_______||__|      |______/  |__| |__| \n ");   
+                                                                     
+
+	printf("\n\n\n\n\n\n\n\n");
 	
 printf("        MMMMMMMM               MMMMMMMM  \n");                                                     
 printf("        M:::::::M             M:::::::M       \n");                                                
@@ -36,15 +46,9 @@ printf("        M::::::M               M::::::Ma::::a    a:::::a   z::::::zzzzzz
 printf("        M::::::M               M::::::Ma:::::aaaa::::::a  z::::::::::::::z e::::::::eeeeeeee  \n");
 printf("        M::::::M               M::::::M a::::::::::aa:::az:::::::::::::::z  ee:::::::::::::e \n");
 printf("        MMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaazzzzzzzzzzzzzzzzz    eeeeeeeeeeeeee  \n\n\n\n\n\n");
-    sleep(3);
-printf("loading");fflush(stdout);
-sleep(8);
-printf(".");
-sleep(2);
-printf(".");
-sleep(2);
-printf(".\n");
-sleep(4);
+sleep(3);
+printf("			Loading.....");fflush(stdout);
+sleep(3);
 	mazeprint(Maze);
 	system("clear");
 	printf("\n");
@@ -53,6 +57,50 @@ sleep(4);
 	int dir,score=0;
 	end = (int*)malloc(sizeof(int));
 	*end = 0;
+	char input;
+	int mir;
+/*
+while(*end!=1){
+		dir=bot2start(Maze,end);
+		score = Maze_alter(Maze , dir, 1, end);
+		S_U = S_U + score; 
+		system("clear");             
+		mazeprint(Maze);
+		printf("Score of U : %d\nScore of E : %d\n" ,S_U,S_E);
+		sleep(1);
+		//system("clear");
+		scanf("%c",&input);
+		if(input=='w')
+		mir=0;
+		if(input=='d')
+		mir=1;
+		if(input=='s')
+		mir=2;
+		if(input=='a')
+		mir=3;
+		score = Maze_alter(Maze , mir, 0, end);
+		S_E = S_E + score;
+		system("clear");
+		mazeprint(Maze);		
+		printf("Score of U : %d\nScore of E : %d\n" ,S_U,S_E);
+//		if(*end == 1){ printf("The winner is User bot with a score : %d\n" ,S_U); sleep(10);}
+		sleep(1);
+		//system("clear");
+		
+	}	
+	return ;
+
+
+*/
+
+
+
+
+
+
+
+
+
 	while(*end!=1){
 		dir=bot2start(Maze,end);
 		score = Maze_alter(Maze , dir, 1, end);
@@ -77,7 +125,7 @@ sleep(4);
 	else printf("\n\n\nThe winner is User bot with a lead of %d\n" ,(S_U-S_E));
 	sleep(5);
 	system("clear");
-		//mazeprint(Maze); 
+		 
 	return 0;	
 }
 
