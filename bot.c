@@ -6,6 +6,8 @@
 #include<stdio.h>
 #include"MazeSolver.h"
 
+
+
 int bot2start(char* Maze,int* end )
 {
 //	mazeprint(Maze);
@@ -32,7 +34,8 @@ int bot2start(char* Maze,int* end )
 int bot3start(char* Maze,int* end )
 {
 //	mazeprint(Maze);
-	int start=posn(Maze,'E');                      //position of U
+	int start=posn(Maze,'E');                      //position of E
+	
 	int next_posn= wheremove(Maze,start,2650);
 	int direction = next_posn - start;
 	if(direction == -52) direction = 0;

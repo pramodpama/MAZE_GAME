@@ -7,7 +7,8 @@
 #include<stdlib.h>
 #include<unistd.h>
 #include "MazeSolver.h"
-
+#define delay 1
+#define size size
 
 int main()
 {
@@ -46,7 +47,7 @@ printf("        M::::::M               M::::::Ma::::a    a:::::a   z::::::zzzzzz
 printf("        M::::::M               M::::::Ma:::::aaaa::::::a  z::::::::::::::z e::::::::eeeeeeee  \n");
 printf("        M::::::M               M::::::M a::::::::::aa:::az:::::::::::::::z  ee:::::::::::::e \n");
 printf("        MMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaazzzzzzzzzzzzzzzzz    eeeeeeeeeeeeee  \n\n\n\n\n\n");
-sleep(3);
+
 printf("			Loading.....");fflush(stdout);
 sleep(3);
 	mazeprint(Maze);
@@ -58,49 +59,7 @@ sleep(3);
 	end = (int*)malloc(sizeof(int));
 	*end = 0;
 	char input;
-	int mir;
-/*
-while(*end!=1){
-		dir=bot2start(Maze,end);
-		score = Maze_alter(Maze , dir, 1, end);
-		S_U = S_U + score; 
-		system("clear");             
-		mazeprint(Maze);
-		printf("Score of U : %d\nScore of E : %d\n" ,S_U,S_E);
-		sleep(1);
-		//system("clear");
-		scanf("%c",&input);
-		if(input=='w')
-		mir=0;
-		if(input=='d')
-		mir=1;
-		if(input=='s')
-		mir=2;
-		if(input=='a')
-		mir=3;
-		score = Maze_alter(Maze , mir, 0, end);
-		S_E = S_E + score;
-		system("clear");
-		mazeprint(Maze);		
-		printf("Score of U : %d\nScore of E : %d\n" ,S_U,S_E);
-//		if(*end == 1){ printf("The winner is User bot with a score : %d\n" ,S_U); sleep(10);}
-		sleep(1);
-		//system("clear");
-		
-	}	
-	return ;
-
-
-*/
-
-
-
-
-
-
-
-
-
+	
 	while(*end!=1){
 		dir=bot2start(Maze,end);
 		score = Maze_alter(Maze , dir, 1, end);
@@ -108,7 +67,7 @@ while(*end!=1){
 		system("clear");             
 		mazeprint(Maze);
 		printf("Score of U : %d\nScore of E : %d\n" ,S_U,S_E);
-		sleep(1);
+		sleep(delay);
 		//system("clear");
 		dir = bot3start(Maze,end);
 		score = Maze_alter(Maze , dir, 0, end);
@@ -117,7 +76,7 @@ while(*end!=1){
 		mazeprint(Maze);		
 		printf("Score of U : %d\nScore of E : %d\n" ,S_U,S_E);
 //		if(*end == 1){ printf("The winner is User bot with a score : %d\n" ,S_U); sleep(10);}
-		sleep(1);
+		sleep(delay);
 		//system("clear");
 	}	
 	if(S_E > S_U) printf("\n\n\nThe winner is Enemy bot with a lead of %d\n" ,(S_E-S_U));
