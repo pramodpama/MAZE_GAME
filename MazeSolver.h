@@ -1,7 +1,6 @@
 /*
  * Name :- Pramod Munemanik
  * R N  :- CS12B045
- * Date :- 18-10-13
  * MazeSolver
  */
 

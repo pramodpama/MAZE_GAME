@@ -7,19 +7,42 @@
 #include<stdlib.h>
 #include<unistd.h>
 #include "MazeSolver.h"
+#include <unistd.h>
+#include <termios.h>
 #define delay 1
 #define size size
 
 int main()
 {
+
+	 struct termios old_tio, new_tio;
+    unsigned char input,ch;
+
+    /* get the terminal settings for stdin */
+    tcgetattr(STDIN_FILENO,&old_tio);
+
+    /* we want to keep the old setting to restore them a the end */
+    new_tio=old_tio;
+
+    /* disable canonical mode (buffered i/o) and local echo */
+    new_tio.c_lflag &=(~ICANON & ~ECHO);
+
+    /* set the new settings immediately */
+    tcsetattr(STDIN_FILENO,TCSANOW,&new_tio);
+
+    
 	char* Maze;
-	int i,n,j,c=0,k=0,t=0,p=0	;
+	int i,n,j;
 	int x,y;
 	int S_U=0,S_E=0;	
 	
 	srand(time(NULL));
 	Maze = maze_former();
 	system("clear");
+
+printf("    \n\n\n\n                 		                                         credits:- Krishna chaitanya\n");
+printf("                                                                                   Pramod Munemanik\n");
+printf("                                                                                   Jitendra Vaghela");
 printf("\n\n\n\n\n\n");
 printf("          ______   ______    _______   _______  _______  __    __  .__   __. \n ");   
 printf("         |      | |  __  |  |       | |   ____||   ____||  |  |  | |  | |  | \n  ");   
@@ -50,16 +73,56 @@ printf("        MMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaazzzzzzzzzzzzzzz
 
 printf("			Loading.....");fflush(stdout);
 sleep(3);
+	printf("\n\n	 press 'c' to start single player game \n\n"); 
+	
+	printf(" 	 press 'b' to start double player game \n");	
+	
+	scanf("%c",&ch);
 	mazeprint(Maze);
 	system("clear");
 	printf("\n");
-	int m=0;
+	int m=0,dir2=0;
 	int *end;
 	int dir,score=0;
 	end = (int*)malloc(sizeof(int));
 	*end = 0;
-	char input;
-	
+
+	if(ch=='c'){
+	while(*end!=1){
+		dir=bot2start(Maze,end);
+		score = Maze_alter(Maze , dir , 1, end);
+		S_U = S_U + score; 
+		system("clear");             
+		mazeprint(Maze);
+		printf("Score of U : %d\nScore of E : %d\n" ,S_U,S_E);
+
+		scanf("%c",&input);
+
+
+		if(input=='w')
+		dir2=0;
+
+		if(input=='d')
+		dir2=1;
+
+		if(input=='s')
+		dir2=2;
+
+		if(input=='a')
+		dir2=3;
+
+		score = Maze_alter(Maze , dir2, 0, end);
+		S_E = S_E + score;
+
+		system("clear");
+		mazeprint(Maze);		
+		printf("Score of U : %d\nScore of E : %d\n" ,S_U,S_E);
+
+	}	
+
+	return 0;
+	} 
+	if(ch=='b'){
 	while(*end!=1){
 		dir=bot2start(Maze,end);
 		score = Maze_alter(Maze , dir, 1, end);
@@ -85,7 +148,8 @@ sleep(3);
 	sleep(5);
 	system("clear");
 		 
-	return 0;	
+	return 0;
+	}	
 }
 
 
