@@ -120,7 +120,7 @@ sleep(3);
 
 	}	
 
-	return 0;
+	
 	} 
 	if(ch=='b'){
 	while(*end!=1){
@@ -142,6 +142,7 @@ sleep(3);
 		sleep(delay);
 		//system("clear");
 	}	
+	}
 	if(S_E > S_U) printf("\n\n\nThe winner is Enemy bot with a lead of %d\n" ,(S_E-S_U));
 	else if(S_E == S_U) printf("\n\n\nThe game is DRAW with scores %d\n" ,S_E);
 	else printf("\n\n\nThe winner is User bot with a lead of %d\n" ,(S_U-S_E));
@@ -149,7 +150,7 @@ sleep(3);
 	system("clear");
 		 
 	return 0;
-	}	
+		
 }
 
 
